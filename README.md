@@ -85,5 +85,11 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. Karena dengan Rwlock memberikan akses kepada pembaca untuk mengakses data bersamaan. Dan Mutex hanya memberikan akses data pada satu pembaca. Hal ini tidak optimal untuk kasus notifikasi yang  seharusnya memiliki banyak pembaca.
+
+2. Rust didesign untuk melakukan konkurensi dan menghindari race condition. Untuk menghindari hal tersebut maka pada rust variable static tidak dapat dilakukan pada saat dijalankan.
 
 #### Reflection Subscriber-2
+1. Penggunaan .env untuk menyimpan informasi sensitif, konfigurasi, fan variabel environment.
+2. pattern tersebut akan memudahkan karena implementasi pada pengiriman notifikasi pada subscriber bukan terletak pada subcriber itu sendiri yang menyebabkan penambahan struktur pada setiap penambahan subscriber. dengan penggunaan pattern ini maka subscriber juga tidak akan memberatkan karena pengaksesannya yang kemungkinan bersamaan antar banyak subcriber.
+3. Belum, tetapi tentu saja akan sangat berguna karena postman dapat memastikan apakah request yang saya lakukan diterima.
